@@ -61,7 +61,7 @@ module.exports = {
           "**/taxonomies",
           "**/users",
           "**/menus",
-          "**/portfolio",
+          "**/work",
           "**/logo",
         ],
       },

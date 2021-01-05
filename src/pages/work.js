@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import { Helmet } from "react-helmet"
 import Img from "gatsby-image"
@@ -18,9 +18,9 @@ export function animateIn() {
 const WorkPage = () => {
   const [loadedClass, setLoadedClass] = useState(false)
 
-  const { allWordpressWpPortfolio, wordpressPage } = useStaticQuery(graphql`
+  const { allWordpressWpWork, wordpressPage } = useStaticQuery(graphql`
     query WorkArchivePageQuery {
-      allWordpressWpPortfolio {
+      allWordpressWpWork {
         edges {
           node {
             title
@@ -51,7 +51,7 @@ const WorkPage = () => {
       <Helmet bodyAttributes={{ class: `${wordpressPage.slug}` }} />
       <SEO title={wordpressPage.title} />
       <div className="portfolio__grid-wrapper">
-        {allWordpressWpPortfolio.edges.map((edge, index) => {
+        {allWordpressWpWork.edges.map((edge, index) => {
           return (
             <TransitionLink
               key={`${edge.node.title}-${index}`}

@@ -12,18 +12,18 @@ const PortfolioPageTemplate = ({ data, pageContext }) => {
       <div>
         <div className="page-wrapper portfolio-template">
           <div className="portfolio-item-content-wrapper">
-            <h3>{data.wordpressWpPortfolio.title}</h3>
+            <h3>{data.wordpressWpWork.title}</h3>
             <div
               className="portfolio-item-content"
               dangerouslySetInnerHTML={{
-                __html: data.wordpressWpPortfolio.content,
+                __html: data.wordpressWpWork.content,
               }}
             />
           </div>
           {/* TODO -- Make into gallery slider */}
           <Img
             fluid={
-              data.wordpressWpPortfolio.featured_media.localFile.childImageSharp
+              data.wordpressWpWork.featured_media.localFile.childImageSharp
                 .fluid
             }
             fadeIn
@@ -49,7 +49,7 @@ const PortfolioPageTemplate = ({ data, pageContext }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    wordpressWpPortfolio(slug: { eq: $slug }) {
+    wordpressWpWork(slug: { eq: $slug }) {
       title
       content
       featured_media {
