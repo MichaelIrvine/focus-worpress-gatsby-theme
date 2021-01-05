@@ -2,24 +2,28 @@ const path = require(`path`)
 const { slash } = require(`gatsby-core-utils`)
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions
+  const { createPage } = actions
 
-  // createRedirect({
-  //   fromPath: "/",
-  //   toPath: "/front-page",
-  //   redirectInBrowser: true,
-  //   isPermanent: true,
-  // })
   const result = await graphql(`
-    {
-      allWordpressPage {
+    query PortfolioItemQuery {
+      allWordpressWpPortfolio {
         edges {
           node {
+            title
+            slug
+            id
+          }
+          next {
+            title
+            link
             id
             slug
-            template
-            content
+          }
+          previous {
             title
+            link
+            id
+            slug
           }
         }
       }
@@ -32,21 +36,22 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Access query results via object destructuring
-  const { allWordpressPage } = result.data
+  const { allWordpressWpPortfolio } = result.data
 
   // Create Page pages.
-  const pageTemplate = path.resolve(`./src/templates/page.js`)
-  const portfolioItems = path.resolve(`./src/templates/portfolioItems.js`)
+  const portfolioTemplate = path.resolve(`./src/templates/portfolio.js`)
 
-  allWordpressPage.edges.forEach(edge => {
-    const template =
-      edge.node.template === "portfolio_items.php"
-        ? portfolioItems
-        : pageTemplate
+  allWordpressWpPortfolio.edges.forEach(edge => {
     createPage({
-      path: edge.node.slug,
-      component: slash(pageTemplate),
-      context: edge.node,
+      path: `/work/${edge.node.slug}`,
+      component: slash(portfolioTemplate),
+      context: {
+        id: edge.node.id,
+        slug: edge.node.slug,
+        title: edge.node.title,
+        next: edge.next,
+        previous: edge.previous,
+      },
     })
   })
 }

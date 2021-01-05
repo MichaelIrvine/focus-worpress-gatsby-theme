@@ -1,0 +1,28 @@
+.portfolio-template {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+  margin: 5rem 0 6rem;
+  max-width: 1200px;
+
+  @media (max-width: 768px) {
+    margin: 1rem 0 4rem;
+  }
+}
+
+.portfolio-nav {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    margin: 1rem 0 4rem;
+  }
+
+  a {
+    font-size: 80%;
+    text-decoration: underline;
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}

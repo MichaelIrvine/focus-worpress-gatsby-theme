@@ -1,0 +1,13 @@
+.portfolio-item {
+  img {
+    filter: blur(6px);
+    transition: 1s -webkit-filter ease;
+    -o-transition: 1s -o-filter ease;
+    transition-delay: 5s;
+  }
+}
+.portfolio-item.visible {
+  img {
+    filter: blur(0);
+  }
+}

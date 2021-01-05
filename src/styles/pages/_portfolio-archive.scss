@@ -1,0 +1,6 @@
+.portfolio__grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 6rem;
+  margin: 5rem 0rem 6rem;
+}

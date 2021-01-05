@@ -1,9 +1,8 @@
 import React from "react"
-import { Link, useStaticQuery } from "gatsby"
-
-import Layout from "../components/layout"
-
+import { useStaticQuery, graphql } from "gatsby"
+import { Helmet } from "react-helmet"
 import SEO from "../components/seo"
+import Hero from "../components/front-page/Hero"
 
 const IndexPage = () => {
   const { allWordpressPage } = useStaticQuery(graphql`
@@ -11,11 +10,7 @@ const IndexPage = () => {
       allWordpressPage(filter: { slug: { eq: "front-page" } }) {
         edges {
           node {
-            path
-            slug
-            link
             title
-            content
           }
         }
       }
@@ -23,15 +18,11 @@ const IndexPage = () => {
   `)
 
   return (
-    <Layout>
-      <SEO title="Home" />
-      <h1>{allWordpressPage.edges[0].node.title}</h1>
-      <p
-        dangerouslySetInnerHTML={{
-          __html: allWordpressPage.edges[0].node.content,
-        }}
-      ></p>
-    </Layout>
+    <>
+      <Helmet bodyAttributes={{ class: "front-page" }} />
+      <SEO title={allWordpressPage.edges[0].node.title} />
+      <Hero />
+    </>
   )
 }
 

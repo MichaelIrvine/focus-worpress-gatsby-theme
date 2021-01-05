@@ -1,0 +1,40 @@
+@import "./_portfolio-archive.scss";
+@import "./front-page";
+
+.front-page main {
+  margin: 0;
+}
+
+main {
+  margin: 0 1.5rem;
+}
+
+// Page template styles
+
+.page-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  margin: 5rem 0 6rem;
+  max-width: 1200px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    margin: 1rem 0 4rem;
+  }
+
+  .gatsby-image-wrapper {
+    max-width: 400px;
+  }
+
+  // Contact Page
+  .contact-page-content {
+    display: flex;
+  }
+
+  .page-content-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 4rem;
+  }
+}

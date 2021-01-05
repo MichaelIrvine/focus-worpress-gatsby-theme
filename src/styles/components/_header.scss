@@ -1,0 +1,33 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  a {
+    color: black;
+  }
+
+  .nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+// Front Page Styles
+.front-page {
+  // Header is fixed top
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+
+    // Text is set to white
+    // --TODO set color in wordpress dashboard
+    a,
+    .mobile-menu-button {
+      color: white;
+    }
+  }
+}

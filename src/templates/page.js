@@ -1,10 +1,16 @@
 import React from "react"
+import SEO from "../components/seo"
+import { Helmet } from "react-helmet"
 
 const Page = ({ pageContext }) => {
+  console.log(pageContext)
   return (
-    <div>
-      <h1>{pageContext.title}</h1>
-    </div>
+    <>
+      <Helmet
+        bodyAttributes={{ class: `page-template ${pageContext.slug}-page` }}
+      />
+      <SEO title={pageContext.title} />
+    </>
   )
 }
 
