@@ -34,8 +34,8 @@ const Branding = () => {
             }),
         }}
         entry={{
+          delay: 1,
           length: 0.8,
-          delay: 0.8,
           trigger: ({ exit, node }) =>
             fadeIn({
               exit,

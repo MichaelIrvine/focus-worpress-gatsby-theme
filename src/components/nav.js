@@ -16,13 +16,24 @@ const StyledNav = styled.nav`
     visibility: ${({ open }) => (open ? "visible" : "hidden")};
     opacity: ${({ open }) => (open ? "1" : "0")};
   }
+
+  @media (max-width: 520px) {
+    position: absolute;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 0.5rem;
+    background: white;
+    z-index: 99;
+  }
 `
 
 export function fadeOut() {
-  gsap.to("main", { duration: 0.8, opacity: 0 })
+  gsap.to(".tl-edges", { duration: 0.8, opacity: 0 })
 }
 export function fadeIn() {
-  gsap.fromTo("main", { opacity: 0 }, { opacity: 1, duration: 1 })
+  gsap.fromTo(".tl-edges", { opacity: 0 }, { opacity: 1, duration: 1 })
 }
 
 const Nav = ({ open, setOpen }) => {
@@ -47,7 +58,7 @@ const Nav = ({ open, setOpen }) => {
             onClick={() => setOpen(!open)}
             key={menuItem.object_id}
             exit={{
-              length: 0.8,
+              length: 0.5,
               trigger: ({ exit, node }) =>
                 fadeOut({
                   exit,
@@ -56,8 +67,8 @@ const Nav = ({ open, setOpen }) => {
                 }),
             }}
             entry={{
+              delay: 1,
               length: 0.8,
-              delay: 0.8,
               trigger: ({ exit, node }) =>
                 fadeIn({
                   exit,

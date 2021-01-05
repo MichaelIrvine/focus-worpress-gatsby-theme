@@ -29,5 +29,12 @@ header {
     .mobile-menu-button {
       color: white;
     }
+
+    nav {
+      @media (max-width: 520px) {
+        border: 1px solid white;
+        background: transparent;
+      }
+    }
   }
 }

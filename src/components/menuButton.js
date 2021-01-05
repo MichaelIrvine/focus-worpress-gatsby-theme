@@ -17,7 +17,7 @@ const MenuButton = ({ open, setOpen }) => {
       open={open}
       onClick={() => setOpen(!open)}
     >
-      Menu
+      {!open ? "Menu" : "Close"}
     </StyledMenuButton>
   )
 }
