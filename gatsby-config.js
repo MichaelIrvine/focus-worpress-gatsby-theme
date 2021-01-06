@@ -49,6 +49,7 @@ module.exports = {
         protocol: process.env.API_PROTOCOL,
         hostingWPCOM: false,
         useACF: true,
+        acfOptionPageIds: ["footer_contact_info"],
         verboseOutput: true,
         perPage: 100,
         concurrentRequests: 10,
