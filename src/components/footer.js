@@ -47,12 +47,21 @@ const Footer = () => {
           <h2>Connect</h2>
         </div>
         <div className="footer-col-2">
-          <p
+          {/* <p
             dangerouslySetInnerHTML={{
               __html:
                 allWordpressAcfOptions.nodes[0].options.footer_contact_info,
             }}
-          ></p>
+          ></p> */}
+          <p>
+            2321 East 57th Street
+            <br data-rich-text-line-break="true" />
+            Vancouver, BC
+            <br data-rich-text-line-break="true" />
+            Canada
+            <br data-rich-text-line-break="true" />
+            G5T 2R3
+          </p>
         </div>
       </div>
     </footer>
